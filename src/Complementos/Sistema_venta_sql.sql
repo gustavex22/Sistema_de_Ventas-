@@ -23,13 +23,17 @@ Create table H_Ventas(
 		tarjetaUsuario int
 )
 
-Create table Usuario(
-	Usuario_id INT Primary Key Identity(1,1),
-	Usuario_Nombre varchar(100),
-	Usuario_tarjeta int
+Create table Cliente(
+	Cliente_id INT Primary Key Identity(1,1),
+	Cliente_Nombre varchar(100),
+	Cliente_tarjeta int
 )
 
-
+Create table Sesion(
+        Sesion_id INT Primary key Identity(1,1),
+        Sesion_User varchar(100),
+        Sesion_Password varchar(100)
+)
 
 Create table Reportes(
 	Reporte_id INT Primary Key Identity(1,1),
