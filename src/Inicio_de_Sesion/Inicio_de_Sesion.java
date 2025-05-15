@@ -23,7 +23,9 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Iniciar Sesion");
         
-        ModoRegister(false);
+        txtPasswordConfirm.setVisible(false);
+        lbPasswordConfirm.setVisible(false);
+        lblLogin.setVisible(false);
     }
 
     /**
@@ -44,6 +46,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnSend = new javax.swing.JButton();
         lblRegister = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +74,21 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
 
         lblRegister.setForeground(new java.awt.Color(0, 102, 153));
         lblRegister.setText("Register User?");
+        lblRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegisterMouseClicked(evt);
+            }
+        });
+
+        lblLogin.setForeground(new java.awt.Color(0, 102, 153));
+        lblLogin.setText("Login User?");
+        lblLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLoginMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +110,9 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
-                        .addComponent(lblRegister))
+                        .addComponent(lblRegister)
+                        .addGap(78, 78, 78)
+                        .addComponent(lblLogin))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +147,9 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSend))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblRegister)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRegister)
+                    .addComponent(lblLogin))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbPasswordConfirm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -141,6 +163,17 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
+        // TODO add your handling code here:
+        ModoRegister(true);
+        
+    }//GEN-LAST:event_lblRegisterMouseClicked
+
+    private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+        // TODO add your handling code here:
+        ModoRegister(false);
+    }//GEN-LAST:event_lblLoginMouseClicked
 
     
     private void Timer(){
@@ -159,6 +192,8 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
     private void ModoRegister(boolean estado){
         txtPasswordConfirm.setVisible(estado);
         lbPasswordConfirm.setVisible(estado);
+        lblRegister.setVisible(!estado);
+        lblLogin.setVisible(estado);
         
         if(estado){
             btnSend.setText("Register");
@@ -209,6 +244,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbPasswordConfirm;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPasswordConfirm;
