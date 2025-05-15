@@ -13,6 +13,8 @@ import javax.swing.Timer;
  * @author Iberos-HP
  */
 public class Inicio_de_Sesion extends javax.swing.JFrame {
+    
+    public boolean estado_general;
 
     /**
      * Creates new form Inicio_de_Sesion
@@ -37,7 +39,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        txtText = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtPasswordConfirm = new javax.swing.JTextField();
@@ -50,9 +52,9 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Login");
+        txtText.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtText.setText("Login");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,9 +103,6 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                         .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(117, 117, 117))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(173, 173, 173))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbPasswordConfirm)
                         .addGap(111, 111, 111))))
             .addGroup(layout.createSequentialGroup()
@@ -120,27 +119,25 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addGap(25, 25, 25))
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(49, 49, 49)
+                                        .addComponent(txtText))
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
-                                .addComponent(btnSend)))))
+                                .addComponent(btnSend))
+                            .addComponent(jLabel2))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addComponent(txtText)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -154,7 +151,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                 .addComponent(lbPasswordConfirm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,13 +163,15 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
 
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
         // TODO add your handling code here:
-        ModoRegister(true);
+        estado_general= true;
+        ModoRegister(estado_general);
         
     }//GEN-LAST:event_lblRegisterMouseClicked
 
     private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
         // TODO add your handling code here:
-        ModoRegister(false);
+        estado_general = false;
+        ModoRegister(estado_general);
     }//GEN-LAST:event_lblLoginMouseClicked
 
     
@@ -195,12 +194,17 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
         lblRegister.setVisible(!estado);
         lblLogin.setVisible(estado);
         
+        
         if(estado){
             btnSend.setText("Register");
+            txtText.setText("Register");
+            setTitle("Registro de Usuario");
         }
         
         if(!estado){
             btnSend.setText("Login");
+            txtText.setText("Login");
+            setTitle("Iniciar Sesion");
         }
     }
     /**
@@ -240,7 +244,6 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSend;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbPasswordConfirm;
@@ -248,6 +251,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
     private javax.swing.JLabel lblRegister;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPasswordConfirm;
+    private javax.swing.JLabel txtText;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
