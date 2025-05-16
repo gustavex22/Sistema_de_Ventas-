@@ -41,3 +41,4 @@ Create table Reportes(
 	Reporte_TipoDeOperacion varchar(500),--Solo hay 2 tipos de Operacion: 'Edicion' y 'Venta' 
 	Reporte_NombreEmpleado varchar(100)
 )
+
