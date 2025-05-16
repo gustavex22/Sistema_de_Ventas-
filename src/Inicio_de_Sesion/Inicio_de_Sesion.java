@@ -8,7 +8,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import javax.swing.Timer;
 
 /**
@@ -105,7 +104,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\vscode\\Sistema_de_Ventas}\\src\\Complementos\\Logo_InicioSesion\\Login.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Complementos/Logo_InicioSesion/Login.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,10 +115,7 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, 0)
-                                .addComponent(txtText))
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(80, 80, 80)
                                 .addComponent(jLabel2))))
@@ -144,7 +140,10 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                         .addComponent(lbPasswordConfirm))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
-                        .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(txtText)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -153,10 +152,9 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(txtText))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
                 .addGap(5, 5, 5)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,7 +193,6 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblRegisterMouseClicked
 
-    
     public void setIcon(String url){
         Image icon = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(icon);
@@ -213,18 +210,18 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
 
     
     private void Timer(){
-        Timer reloj = new Timer(10 , new ActionListener(){
+        Timer reloj = new Timer(20 , new ActionListener(){
         @Override
             public void actionPerformed(ActionEvent e){
                   //El codigo aqui se ejecuta constantemente lol
                   
                   if(Pass){
-                      String icon = "D:/vscode/Sistema_de_Ventas}/src/Complementos/Logo_InicioSesion/icon_SI.png ";
+                      String icon = "E:/vscode/Sistema_de_Ventas}/src/Complementos/Logo_InicioSesion/icon_SI.png ";
                       setIcon(icon);
                   }
                   
                   if(!Pass){
-                      String icon = "D:/vscode/Sistema_de_Ventas}/src/Complementos/Logo_InicioSesion/icon_No.png ";
+                      String icon = "E:/vscode/Sistema_de_Ventas}/src/Complementos/Logo_InicioSesion/icon_No.png ";
                       setIcon(icon);
                   }
                   
@@ -235,13 +232,11 @@ public class Inicio_de_Sesion extends javax.swing.JFrame {
         
     }
     
-    
     private void ModoRegister(boolean estado){
         txtPasswordConfirm.setVisible(estado);
         lbPasswordConfirm.setVisible(estado);
         lblRegister.setVisible(!estado);
         lblLogin.setVisible(estado);
-        
         
         if(estado){
             btnSend.setText("Register");
